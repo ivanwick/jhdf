@@ -9,3 +9,5 @@
  */
 
 rootProject.name = 'jhdf'
+
+include 'jhdf-extra-filters'

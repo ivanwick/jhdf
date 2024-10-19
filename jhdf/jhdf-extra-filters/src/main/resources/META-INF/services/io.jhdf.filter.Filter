@@ -1,0 +1,3 @@
+io.jhdf.filter.BitShuffleFilter
+io.jhdf.filter.Lz4Filter
+io.jhdf.filter.LzfFilter

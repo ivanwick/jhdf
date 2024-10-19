@@ -19,6 +19,8 @@ plugins {
     id 'signing' // For GPG signing artifacts
     id 'checkstyle' // Code style checks
 
+    id 'java-test-fixtures'
+
     // Community plugins (need versions)
     id 'org.sonarqube' version '4.0.0.2929' // Code quality
     id "com.github.spotbugs" version "6.0.25" // Static analysis
@@ -49,10 +51,6 @@ dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.17.0'
-    // lzf compression support
-    implementation group: 'com.ning', name: 'compress-lzf', version: '1.1.2'
-    // lz5 support https://mvnrepository.com/artifact/org.lz4/lz4-java
-    implementation group: 'org.lz4', name: 'lz4-java', version: '1.8.0'
 
     // Use JUnit 5 test framework
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.11.2'
@@ -64,11 +62,18 @@ dependencies {
     // Matchers
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '3.0'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.3'
-    // Alternative bitshuffle impl to check results against
-    testImplementation 'org.xerial.snappy:snappy-java:1.1.10.7'
     // For parsing h5dump XML output
     testImplementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.18.0'
     testImplementation 'commons-io:commons-io:2.17.0'
+
+    // fixtures ???
+    testFixturesImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.11.2'
+    // Matchers
+    testFixturesImplementation group: 'org.hamcrest', name: 'hamcrest', version: '3.0'
+    testFixturesImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.3'
+    testFixturesImplementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.17.0'
+    testFixturesImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
+
 }
 
 test {
